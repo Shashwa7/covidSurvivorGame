@@ -71,10 +71,10 @@ const app = new Vue({
             this.difficulty = 0;
             this.level = 1200;
             this.infection = false;
-            this.performAttacks[0].max = 5
-            this.performAttacks[1].max = 28
-            this.performAttacks[0].status = true,
-            this.performAttacks[1].status = true,
+            this.performAttacks[0].max = 5;
+            this.performAttacks[1].max = 28;
+            this.performAttacks[0].status = true;
+            this.performAttacks[1].status = true
         },
         attack() {
             this.performAttacks[1].max--;
