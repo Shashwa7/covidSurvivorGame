@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>Covid Survival</title>
+</head>
+<body>
+    <div id="app">
+        <h1>The Covid Survivor</h1>
+        <div class="gamePlayers">
+            <div class="player">
+                <img src="https://image.flaticon.com/icons/svg/2750/2750657.svg">
+            </div>
+            <div class="player">
+                <img src="https://image.flaticon.com/icons/svg/2813/2813238.svg">
+            </div>
+        </div>
+
+        <div class="gameProgress">
+            
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" :style="{width: heroHealth+'%'}" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">{{this.heroHealth}}</div>
+              </div>
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-warning  progress-bar-animated" role="progressbar" :style="{width: monsterHealth+'%'}" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" >{{this.monsterHealth}}</div>
+              </div>
+        </div>
+        
+        <button type="button" class="btn btn-info btn-lg" @click="startGame" v-show="!gameStarted && !difficulty">Start Game / Enter </button>
+          <div class='difficulty'  v-show="gameStarted && !difficulty">
+            <button type="button" class="btn btn-warning" @click="setDifficulty(1)">Noob : N</button>
+            <button type="button" class="btn btn-danger" @click="setDifficulty(2)">Pro : P</button>
+            <button type="button" class="btn btn-dark" @click="setDifficulty(3)">Impossible : I</button>
+          </div>
+          <div class="attacks" v-show="gameStarted && difficulty">
+            <button type="button" class="btn"  @click="attack" :class="{'btn-secondary' : !this.performAttacks[1].status, 'btn-danger': this.performAttacks[1].status}">Attack : A</button>
+            <button type="button" class="btn" @click="specialAttack" :class="{'btn-secondary' : !this.performAttacks[0].status, 'btn-warning': this.performAttacks[0].status}">Special Attack : S</button>
+            <button type="button" class="btn btn-success" @click="heal">Heal : H</button>
+            <button type="button" class="btn btn-dark" @click="restartGame">Give Up : Q</button>
+          </div>
+
+          <div class="alert alert-success" role="alert" v-if="winner === 1">
+            Congrats You survived!
+          </div>
+          <div class="alert alert-danger" role="alert" v-if="winner === 2">
+            You got Infected!
+          </div>
+    </div>
+
+    <script src="app.js"></script>
+    
+</body>
+</html>
