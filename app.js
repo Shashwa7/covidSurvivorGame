@@ -30,7 +30,8 @@ const app = new Vue({
                 }
             }
         });
-         document.addEventListener('gesturestart', function (e) {
+
+        document.addEventListener('gesturestart', function (e) {
             e.preventDefault();
         });
     },
@@ -81,7 +82,7 @@ const app = new Vue({
 
             if (this.performAttacks[1].status) {
                 //damage to monster
-                this.monsterHealth -= this.generateDamage(5, 15);
+                this.monsterHealth -= this.generateDamage(10, 30);
 
                 //in-return damage to human
                 this.heroHealth -= this.generateDamage(3, 8);
@@ -97,10 +98,10 @@ const app = new Vue({
 
             if (this.performAttacks[0].status) {
                 //damage to monster
-                this.monsterHealth -= this.generateDamage(12, 30);
+                this.monsterHealth -= this.generateDamage(18, 40);
 
                 //in-return damage to human
-                this.heroHealth -= this.generateDamage(4, 10);
+                this.heroHealth -= this.generateDamage(5, 10);
             }
         },
         heal() {
