@@ -56,9 +56,9 @@ const app = new Vue({
         setDifficulty(x) {
             this.difficulty = x;
             switch (this.difficulty) {
-                case 1: this.level = 1100; break;
-                case 2: this.level = 800; break;
-                case 3: this.level = 500; break;
+                case 1: this.level = 900; break;
+                case 2: this.level = 500; break;
+                case 3: this.level = 300; break;
             }
         },
         generateDamage(min, max) {
