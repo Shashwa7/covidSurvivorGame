@@ -56,9 +56,9 @@ const app = new Vue({
         setDifficulty(x) {
             this.difficulty = x;
             switch (this.difficulty) {
-                case 1: this.level = 1500; break;
-                case 2: this.level = 850; break;
-                case 3: this.level = 550; break;
+                case 1: this.level = 1100; break;
+                case 2: this.level = 800; break;
+                case 3: this.level = 500; break;
             }
         },
         generateDamage(min, max) {
@@ -82,7 +82,7 @@ const app = new Vue({
 
             if (this.performAttacks[1].status) {
                 //damage to monster
-                this.monsterHealth -= this.generateDamage(10, 30);
+                this.monsterHealth -= this.generateDamage(10, 25);
 
                 //in-return damage to human
                 this.heroHealth -= this.generateDamage(3, 8);
@@ -98,7 +98,7 @@ const app = new Vue({
 
             if (this.performAttacks[0].status) {
                 //damage to monster
-                this.monsterHealth -= this.generateDamage(18, 40);
+                this.monsterHealth -= this.generateDamage(15, 35);
 
                 //in-return damage to human
                 this.heroHealth -= this.generateDamage(5, 10);
