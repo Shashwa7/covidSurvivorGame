@@ -39,7 +39,7 @@ const app = new Vue({
         gameStarted: false,
         heroHealth: 100,
         monsterHealth: 100,
-        performAttacks: [{ name: 'special', status: true, max: 8 }, { name: 'regular', status: true, max: 30 }],
+        performAttacks: [{ name: 'special', status: true, max: 5 }, { name: 'regular', status: true, max: 28 }],
         freezeAttack: false,
         freezeSpcAttack: false,
         winner: 0,
@@ -71,6 +71,10 @@ const app = new Vue({
             this.difficulty = 0;
             this.level = 1200;
             this.infection = false;
+            this.performAttacks[0].max = 5
+            this.performAttacks[1].max = 28
+            this.performAttacks[0].status = true,
+            this.performAttacks[1].status = true,
         },
         attack() {
             this.performAttacks[1].max--;
@@ -82,7 +86,7 @@ const app = new Vue({
 
             if (this.performAttacks[1].status) {
                 //damage to monster
-                this.monsterHealth -= this.generateDamage(10, 25);
+                this.monsterHealth -= this.generateDamage(8, 22);
 
                 //in-return damage to human
                 this.heroHealth -= this.generateDamage(3, 8);
@@ -123,7 +127,7 @@ const app = new Vue({
             //reset normal attack after 2s
             if (this.performAttacks[1].max === 0) {
                 setTimeout(() => {
-                    this.performAttacks[1].max = 30;
+                    this.performAttacks[1].max = 28;
                     this.performAttacks[1].status = true;
                     this.freezeAttack = false;
                 }, 1500);
@@ -134,7 +138,7 @@ const app = new Vue({
             //reset Special Attack afte 3s
             if (this.performAttacks[0].max === 0) {
                 setTimeout(() => {
-                    this.performAttacks[0].max = 8;
+                    this.performAttacks[0].max = 5;
                     this.performAttacks[0].status = true;
                     this.freezeSpcAttack = false;
                 }, 3000);
