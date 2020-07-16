@@ -102,7 +102,7 @@ const app = new Vue({
 
             if (this.performAttacks[0].status) {
                 //damage to monster
-                this.monsterHealth -= this.generateDamage(20, 40);
+                this.monsterHealth -= this.generateDamage(15, 30);
 
                 //in-return damage to human
                 this.heroHealth -= this.generateDamage(5, 10);
